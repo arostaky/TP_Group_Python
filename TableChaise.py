@@ -1,14 +1,10 @@
 import maya.cmds as cmds
-
-cmds.file(f=True, new=True)
-
-
-def table():
+def table(f_tablewidthz, f_tableWidthx, f_tableHeight, f_Chaisewidthz, f_ChaiseWidthx, f_ChaiseHeight, f_Distance):
 
     
-    tablewidthz = cmds.intSliderGrp(slider1, q=True, value=True)
-    tableWidthx = cmds.intSliderGrp(slider2, q=True, value=True)
-    tableHeight = cmds.intSliderGrp(slider3, q=True, value=True)
+    tablewidthz = f_tablewidthz
+    tableWidthx = f_tableWidthx
+    tableHeight = f_tableHeight
     #Roundness = cmds.intSliderGrp(slider4, q=True, value=True)
    
     
@@ -24,19 +20,19 @@ def table():
     #patas
     
     i=1
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table1_'+str(i))
+    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table1_')
     cmds.move(-tableWidthx/2.0 + 1,0,tablewidthz/2.0 - 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table2_'+str(i))
+    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table2_')
     cmds.move(tableWidthx/2.0 - 1,0,tablewidthz/2.0 - 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table3_'+str(i))
+    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table3_')
     cmds.move(tableWidthx/2.0 - 1,0,-tablewidthz/2.0 + 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table4_'+str(i))
+    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table4_')
     cmds.move(-tableWidthx/2.0 + 1,0,-tablewidthz/2.0 + 1)
     cmds.polyBevel(offset=0.1)
     
@@ -46,10 +42,10 @@ def table():
 def Chaise():
     
     
-    Chaisewidthz = cmds.intSliderGrp(slider4, q=True, value=True)
-    ChaiseWidthx = cmds.intSliderGrp(slider5, q=True, value=True)
-    ChaiseHeight = cmds.intSliderGrp(slider6, q=True, value=True)
-    Distance = cmds.intSliderGrp(slider7, q=True, value=True)
+    Chaisewidthz = f_Chaisewidthz
+    ChaiseWidthx = f_ChaiseWidthx
+    ChaiseHeight = f_ChaiseHeight
+    Distance = f_Distance
     
     #mesa
     cmds.polyCube(h=1, w=ChaiseWidthx, depth=Chaisewidthz, n='Chaise')
@@ -130,23 +126,23 @@ def Chaise():
     
     
     
-cmds.window(title = 'table')
-cmds.columnLayout()
-slider1= cmds.intSliderGrp( field=True, label='tablewidthz', minValue=4, maxValue=20, value=10 )
-slider2= cmds.intSliderGrp( field=True, label='tableWidthx', minValue=2, maxValue=20, value=10 )
-slider3= cmds.intSliderGrp( field=True, label='tableHeight', minValue=2, maxValue=20, value=6 )
+# cmds.window(title = 'table')
+# cmds.columnLayout()
+# slider1= cmds.intSliderGrp( field=True, label='tablewidthz', minValue=4, maxValue=20, value=10 )
+# slider2= cmds.intSliderGrp( field=True, label='tableWidthx', minValue=2, maxValue=20, value=10 )
+# slider3= cmds.intSliderGrp( field=True, label='tableHeight', minValue=2, maxValue=20, value=6 )
 
-slider4= cmds.intSliderGrp( field=True, label='Chaisewidthz', minValue=4, maxValue=6, value=4 )
-slider5= cmds.intSliderGrp( field=True, label='ChaiseWidthx', minValue=2, maxValue=6, value=5 )
-slider6= cmds.intSliderGrp( field=True, label='ChaiseHeight', minValue=2, maxValue=10, value=4 )
-slider7= cmds.intSliderGrp( field=True, label='Distance', minValue=-10, maxValue=10, value=-5 )
+# slider4= cmds.intSliderGrp( field=True, label='Chaisewidthz', minValue=4, maxValue=6, value=4 )
+# slider5= cmds.intSliderGrp( field=True, label='ChaiseWidthx', minValue=2, maxValue=6, value=5 )
+# slider6= cmds.intSliderGrp( field=True, label='ChaiseHeight', minValue=2, maxValue=10, value=4 )
+# slider7= cmds.intSliderGrp( field=True, label='Distance', minValue=-10, maxValue=10, value=-5 )
 
-#slider8= cmds.intSliderGrp( field=True, label='Base', minValue=-10, maxValue=10, value=-5 )
+# #slider8= cmds.intSliderGrp( field=True, label='Base', minValue=-10, maxValue=10, value=-5 )
 
 
 
-cmds.button(label = 'Create Table', c='table()')
-cmds.button(label = 'Create Chaise', c='Chaise()')
-cmds.button(label = 'Base', c='Base()')
-cmds.separator(style='none', h=10, w=10)
-cmds.showWindow() 
+# cmds.button(label = 'Create Table', c='table()')
+# cmds.button(label = 'Create Chaise', c='Chaise()')
+# cmds.button(label = 'Base', c='Base()')
+# cmds.separator(style='none', h=10, w=10)
+# cmds.showWindow() 
