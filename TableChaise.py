@@ -1,5 +1,5 @@
 import maya.cmds as cmds
-def table(f_tablewidthz, f_tableWidthx, f_tableHeight, f_Chaisewidthz, f_ChaiseWidthx, f_ChaiseHeight, f_Distance):
+def table(f_tablewidthz, f_tableWidthx, f_tableHeight):
 
     
     tablewidthz = f_tablewidthz
@@ -39,7 +39,7 @@ def table(f_tablewidthz, f_tableWidthx, f_tableHeight, f_Chaisewidthz, f_ChaiseW
     cmds.group('table','p_table1_','p_table2_','p_table3_','p_table4_', n='Table1_'+str(i))
     
 
-def Chaise():
+def Chaise(f_Chaisewidthz, f_ChaiseWidthx, f_ChaiseHeight, f_Distance):
     
     
     Chaisewidthz = f_Chaisewidthz
