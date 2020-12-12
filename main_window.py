@@ -6,8 +6,10 @@ cmds.file(f=True, new=True)
 from lib import test
 from lib import canape
 from lib import TableChaise
+from lib import Chair
+from lib import Table
 
-modules = [test, canape, TableChaise]
+modules = [test, canape, TableChaise, Chair, Table]
 
 def reload_it():
   for sub_module in modules:
@@ -29,9 +31,9 @@ cmds.formLayout( form, edit=True, attachForm=((tabs, 'top', 0), (tabs, 'left', 0
 mainRLWidth = [winWidth*0.4, winWidth*0.4]
 child1 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/canape.png', label='Canape',width=mainRLWidth[1]*0.2, c='canape.open()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table_chaise.png', label='Chaise',width=mainRLWidth[1]*0.2, c='cmds.showWindow(TableChaise.winName)')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/comode.png', label='Comode',width=mainRLWidth[1]*0.2, c='lamp()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/lamp.png', label='Lamp',width=mainRLWidth[1]*0.2, c='table()')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table_chaise.png', label='Table & Chair',width=mainRLWidth[1]*0.2, c='cmds.showWindow(TableChaise.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/chaise.png', label='Chair',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Chair.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Table.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/placard.png', label='Placard',width=mainRLWidth[1]*0.2, c='Chaise()')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table_chaise.png', label='Table et Chaise',width=mainRLWidth[1]*0.2, c='Chaise()')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='Chaise()')
