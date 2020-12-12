@@ -126,7 +126,7 @@ backgroundColor = [40.0/255.0,35.0/255.0,39.0/255.0]
 winWidth = 600 # set a target width and reference this when you specify width
 if cmds.window(winName, exists=True):
     cmds.deleteUI(winName)
-cmds.window(winName, width=winWidth, title='Table and Chair', h=200,  bgc=(backgroundColor))
+cmds.window(winName, width=winWidth, title='Table and Chair', h=200,  bgc=(backgroundColor), tlb=True)
 #reference to the main columnLayout
 mainCL = cmds.columnLayout() 
 mainRLWidth = [winWidth*0.4, winWidth*0.8]
