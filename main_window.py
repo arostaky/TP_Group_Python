@@ -10,7 +10,8 @@ from lib import Chair
 from lib import Table
 from lib import library
 from lib import bed
-modules = [test, canape, TableChaise, Chair, Table, library, bed]
+from lib import room
+modules = [test, canape, TableChaise, Chair, Table, library, bed, room]
 
 def reload_it():
   for sub_module in modules:
