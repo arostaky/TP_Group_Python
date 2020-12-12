@@ -9,8 +9,8 @@ from lib import TableChaise
 from lib import Chair
 from lib import Table
 from lib import library
-
-modules = [test, canape, TableChaise, Chair, Table, library]
+from lib import bed
+modules = [test, canape, TableChaise, Chair, Table, library, bed]
 
 def reload_it():
   for sub_module in modules:
@@ -31,18 +31,18 @@ cmds.formLayout( form, edit=True, attachForm=((tabs, 'top', 0), (tabs, 'left', 0
 #reference to the main columnLayout
 mainRLWidth = [winWidth*0.4, winWidth*0.4]
 child1 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/biblioteque.png', label='Room',width=mainRLWidth[1]*0.2, c='cmds.showWindow(room.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/canape.png', label='Canape',width=mainRLWidth[1]*0.2, c='cmds.showWindow(canape.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table_chaise.png', label='Table & Chair',width=mainRLWidth[1]*0.2, c='cmds.showWindow(TableChaise.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/chaise.png', label='Chair',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Chair.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Table.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/biblioteque.png', label='Library',width=mainRLWidth[1]*0.2, c='cmds.showWindow(library.winName)')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table_chaise.png', label='Table et Chaise',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/biblioteque.png', label='Biblioteque',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/lamp.png', label='Lamp',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/lit.png', label='Lit',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/canape.png', label='Canape',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/coming_soon.png', label='Coming Soon', c='Chaise()')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/lit.png', label='Bed',width=mainRLWidth[1]*0.2, c='cmds.showWindow(bed.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.setParent( '..' )
 child2 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/canape.png', label='Canape 2',width=mainRLWidth[1]*0.2, c='table()')
