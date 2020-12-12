@@ -8,8 +8,9 @@ from lib import canape
 from lib import TableChaise
 from lib import Chair
 from lib import Table
+from lib import library
 
-modules = [test, canape, TableChaise, Chair, Table]
+modules = [test, canape, TableChaise, Chair, Table, library]
 
 def reload_it():
   for sub_module in modules:
@@ -34,7 +35,7 @@ cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table_chaise.png', label='Table & Chair',width=mainRLWidth[1]*0.2, c='cmds.showWindow(TableChaise.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/chaise.png', label='Chair',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Chair.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Table.winName)')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/placard.png', label='Placard',width=mainRLWidth[1]*0.2, c='Chaise()')
+cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/biblioteque.png', label='Library',width=mainRLWidth[1]*0.2, c='cmds.showWindow(library.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table_chaise.png', label='Table et Chaise',width=mainRLWidth[1]*0.2, c='Chaise()')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='Chaise()')
 cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/biblioteque.png', label='Biblioteque',width=mainRLWidth[1]*0.2, c='Chaise()')
