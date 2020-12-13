@@ -16,3 +16,4 @@ import maya.cmds as cmds
 sc = cmds.internalVar(userScriptDir=True)
 print(sc)
 ```
+  - Run the script: main_window.py in maya
