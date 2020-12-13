@@ -1,5 +1,5 @@
 import maya.cmds as cmds
-
+sc = cmds.internalVar(userScriptDir=True)
 def runRoom():
 
     #Room_Size
@@ -110,7 +110,7 @@ mainRL = cmds.rowLayout(w=winWidth, numberOfColumns=2, columnWidth2=mainRLWidth,
 
 cmds.columnLayout(w=mainRLWidth[0]) # create a columnLayout under the first row of mainRL
 # cmds.button(label='runFirst', width=mainRLWidth[1]*0.95, height=70, c='buildVariables()')
-cmds.iconTextButton(style='iconAndTextVertical', image1='/home/fullarostaky/maya/2020/scripts/icons/2x/biblioteque.png', label='Room',width=mainRLWidth[1]*0.5, c=lambda:runRoom())
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/biblioteque.png', label='Room',width=mainRLWidth[1]*0.5, c=lambda:runRoom())
 cmds.setParent('..') # this will exit the rowLayout back to the mainRL, same as cmds.setParent(mainRL)
 
 cmds.columnLayout(width=mainRLWidth[1]) # start another vertical layout
