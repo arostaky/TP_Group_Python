@@ -10,5 +10,9 @@ Group:
 
 # Instalation
 
-  - Download the project and unextract the files inside your Maya/Script folder usually  localted in (Home/maya or Users/myuser/maya, etc). If you cannot find your folder run: getenv "MAYA_SCRIPT_PATH"
-  - This is temporary: Change the path for icons in the file: main_window.py and in the files in lib folder. From: /home/fullarostaky/maya/2020/scripts/ to "yourMayaPath"
+  - Download the project and unextract the files inside your Maya/Script folder usually  localted in (Home/maya or Users/myuser/maya, etc). If you cannot find your folder run in python:
+  ```sh
+import maya.cmds as cmds
+sc = cmds.internalVar(userScriptDir=True)
+print(sc)
+```
