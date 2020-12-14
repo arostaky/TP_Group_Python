@@ -18,14 +18,17 @@ def runRoom():
     DepthWall = cmds.floatSliderGrp(slider5, q=True, value=True)
 
     #Wall_inside_Posirion
-    i =7
-    y = 1
-    x = -3
-
+    # i =7
+    # y = 1
+    # x = -3
+    i = cmds.intSliderGrp(slider7, q=True, value=True)
+    y = cmds.intSliderGrp(slider8, q=True, value=True)
+    x = cmds.intSliderGrp(slider9, q=True, value=True)
 
     #Room_Numbre
 
-    RoomNumber = 3
+    # RoomNumber = 3
+    RoomNumber = cmds.intSliderGrp(slider6, q=True, value=True)
 
 
     a = ((DepthSurface/2.0)-(DepthWall/2.0))*-1
@@ -118,4 +121,10 @@ slider1 = cmds.intSliderGrp(field=True, label='WIDTH SURFACE', minValue=1, maxVa
 slider2 = cmds.floatSliderGrp(field=True, label='HEIGHT SURFACE', minValue=0.1, maxValue=20, value=0.3, width=winWidth/2 )
 slider3 = cmds.intSliderGrp(field=True, label='HEIGHT', minValue=1, maxValue=20, value=20, width=winWidth/2 )
 slider4 = cmds.intSliderGrp(field=True, label='EXTRUDE Y', minValue=1, maxValue=2, value=5, width=winWidth/2 )
-slider5 = cmds.floatSliderGrp(field=True, label='EXTRUDE Z', minValue=0.1, maxValue=2, value=0.5, width=winWidth/2 )              
+slider5 = cmds.floatSliderGrp(field=True, label='EXTRUDE Z', minValue=0.1, maxValue=2, value=0.5, width=winWidth/2 )
+slider6 = cmds.intSliderGrp(field=True, label='ROOM #', minValue=0, maxValue=3, value=2, width=winWidth/2 ) 
+cmds.text(label='Wall Inside Position', font='boldLabelFont')
+cmds.text(label='')
+slider7 = cmds.intSliderGrp(field=True, label='I #', minValue=0, maxValue=20, value=7, width=winWidth/2 ) 
+slider8 = cmds.intSliderGrp(field=True, label='Y #', minValue=0, maxValue=10, value=1, width=winWidth/2 ) 
+slider9 = cmds.intSliderGrp(field=True, label='X #', minValue=-10, maxValue=3, value=-3, width=winWidth/2 ) 
