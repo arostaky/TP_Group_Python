@@ -4,7 +4,8 @@ cmds.file(f=True, new=True)
 
 sc = cmds.internalVar(userScriptDir=True)
 
-#FREAKING OUT!!!!!!!!!!!
+#Fixing import issue: 
+#-----------------------------------------------------------
 
 from lib import test
 from lib import canape
@@ -21,7 +22,7 @@ def reload_it():
     print "Reloading %s" % sub_module
     reload(sub_module)
 
-#---------------------------
+#--------------------------------------------------------------
 reload_it()
 backgroundColor = [40.0/255.0,35.0/255.0,39.0/255.0]
 winName = 'Main_Window'
@@ -29,9 +30,9 @@ winWidth = 600 # set a target width and reference this when you specify width
 if cmds.window(winName, exists=True):
     cmds.deleteUI(winName)
 cmds.window(winName, width=winWidth, title='Forniture Generator', bgc=(backgroundColor))
-form = cmds.formLayout()
+# form = cmds.formLayout()
 tabs = cmds.tabLayout(innerMarginWidth=5, innerMarginHeight=5)
-cmds.formLayout( form, edit=True, attachForm=((tabs, 'top', 0), (tabs, 'left', 0), (tabs, 'bottom', 0), (tabs, 'right', 0)) )
+# cmds.formLayout( form, edit=True, attachForm=((tabs, 'top', 0), (tabs, 'left', 0), (tabs, 'bottom', 0), (tabs, 'right', 0)) )
 #reference to the main columnLayout
 mainRLWidth = [winWidth*0.4, winWidth*0.4]
 child1 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
@@ -67,6 +68,6 @@ cmds.button()
 cmds.button()
 cmds.button()
 cmds.setParent( '..' )
-cmds.tabLayout( tabs, edit=True, tabLabel=((child1, 'LIVING ROOM'), (child2, 'DINNER ROOM'), (child3, 'BED ROOM')), bgc=(40.0/255.0,35.0/255.0,39.0/255.0))
+cmds.tabLayout( tabs, edit=True, tabLabel=((child1, 'LIVING ROOM'), (child2, 'DINNER ROOM'), (child3, 'BED ROOM')), bgc=(backgroundColor))
 cmds.showWindow(winName)
 cmds.window(winName, e=True, width=winWidth, height=470)
