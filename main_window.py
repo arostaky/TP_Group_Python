@@ -22,8 +22,11 @@ def reload_it():
     print "Reloading %s" % sub_module
     reload(sub_module)
 
-#--------------------------------------------------------------
+
 reload_it()
+
+#--------------------------------------------------------------
+
 backgroundColor = [40.0/255.0,35.0/255.0,39.0/255.0]
 winName = 'Main_Window'
 winWidth = 600 # set a target width and reference this when you specify width
