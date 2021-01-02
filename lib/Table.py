@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+import random
 sc = cmds.internalVar(userScriptDir=True)
 def table():
  
@@ -9,34 +10,39 @@ def table():
    
     
     #mesa
-    cmds.polyCube(h=0.7, w=tableWidthx, depth=tablewidthz, n='table')
+    table = cmds.polyCube(h=0.7, w=tableWidthx, depth=tablewidthz)
+    rtable = cmds.ls(table[0])
+    print(rtable)
     cmds.move(0,tableHeight/2.0-0.3,0)
-    cmds.select('table.e[4:5]')
-    cmds.select('table.e[8:9]', add=True)
+    cmds.select(str(rtable[0])+'.e[4:5]')
+    cmds.select(str(rtable[0])+'.e[8:9]', add=True)
+    # cmds.select('table.e[4:5]')
+    # cmds.select('table.e[8:9]', add=True)
     cmds.polyBevel3(offset=1, segments=3)
-    cmds.polyBevel3('table', offset=0.1)
+    cmds.polyBevel3(rtable[0], offset=0.1)
     
     
     #patas
     
-    i=1
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table1_')
+    pataUno = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(-tableWidthx/2.0 + 1,0,tablewidthz/2.0 - 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table2_')
+    pataDos = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(tableWidthx/2.0 - 1,0,tablewidthz/2.0 - 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table3_')
+    pataTres = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(tableWidthx/2.0 - 1,0,-tablewidthz/2.0 + 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table4_')
+    pataCuatro = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(-tableWidthx/2.0 + 1,0,-tablewidthz/2.0 + 1)
     cmds.polyBevel(offset=0.1)
-    
-    cmds.group('table','p_table1_','p_table2_','p_table3_','p_table4_', n='Table1_'+str(i))
+    mir = random.randint(0, 19)
+    crazyR = random.randint(0,1000)
+    rName = 'Table'+ str(mir) + str(crazyR)
+    cmds.group(table,pataUno, pataDos, pataTres, pataCuatro, n=rName)
 
 winName = 'Table'
 backgroundColor = [40.0/255.0,35.0/255.0,39.0/255.0]
