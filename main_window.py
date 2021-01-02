@@ -1,7 +1,5 @@
 import maya.cmds as cmds
 cmds.file(f=True, new=True)
-
-
 sc = cmds.internalVar(userScriptDir=True)
 
 #Fixing import issue: 
@@ -15,7 +13,9 @@ from lib import Table
 from lib import library
 from lib import bed
 from lib import room
-modules = [test, canape, TableChaise, Chair, Table, library, bed, room]
+from lib import Comode
+from lib import Lamp
+modules = [test, canape, TableChaise, Chair, Table, library, bed, room, Comode, Lamp]
 
 def reload_it():
   for sub_module in modules:
@@ -45,7 +45,7 @@ cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/table_ch
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/chaise.png', label='Chair',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Chair.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Table.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/biblioteque.png', label='Library',width=mainRLWidth[1]*0.2, c='cmds.showWindow(library.winName)')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lit.png', label='Bed',width=mainRLWidth[1]*0.2, c='cmds.showWindow(bed.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lamp.png', label='Lamp',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Lamp.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
@@ -53,9 +53,9 @@ cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_s
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.setParent( '..' )
 child2 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/canape.png', label='Canape 2',width=mainRLWidth[1]*0.2, c='table()')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lit.png', label='Bed',width=mainRLWidth[1]*0.2, c='cmds.showWindow(bed.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/comode.png', label='Comode',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Comode.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/chaise.png', label='Chaise',width=mainRLWidth[1]*0.2, c='table()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/comode.png', label='Comode',width=mainRLWidth[1]*0.2, c='lamp()')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lamp.png', label='Lamp',width=mainRLWidth[1]*0.2, c='table()')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/placard.png', label='Placard',width=mainRLWidth[1]*0.2, c='Chaise()')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/table_chaise.png', label='Table et Chaise',width=mainRLWidth[1]*0.2, c='Chaise()')
@@ -71,6 +71,6 @@ cmds.button()
 cmds.button()
 cmds.button()
 cmds.setParent( '..' )
-cmds.tabLayout( tabs, edit=True, tabLabel=((child1, 'LIVING ROOM'), (child2, 'DINNER ROOM'), (child3, 'BED ROOM')), bgc=(backgroundColor))
+cmds.tabLayout( tabs, edit=True, tabLabel=((child1, 'LIVING ROOM'), (child2, 'BED ROOM'), (child3, 'BED ROOM')), bgc=(backgroundColor))
 cmds.showWindow(winName)
 cmds.window(winName, e=True, width=winWidth, height=470)
