@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+import random
 sc = cmds.internalVar(userScriptDir=True)
 def runBed():
 
@@ -12,52 +13,57 @@ def runBed():
     matela_Height = cmds.intSliderGrp(slider3, q=True, value=True)
     lit_extrude_y = cmds.floatSliderGrp(slider4, q=True, value=True)
     lit_extrude_Z = cmds.floatSliderGrp(slider5, q=True, value=True)
-
-    cmds.group(n = 'lit_complete', em=True)
+    mir = random.randint(0, 19)
+    crazyR = random.randint(0,1000)
+    gName =  'lit_complete' + str(mir) + str(crazyR)
+    cmds.group(n = gName, em=True)
 
     #matelas
-    cmds.polyCube(h=matela_Height, w=matela_Widthx, depth=matela_widthz, n='matela')
-    cmds.polyBevel3('matela',offset=0.1)
-    cmds.polySmooth('matela', divisions=3)
-    cmds.parent('matela','lit_complete', relative=True)
+    matela  = cmds.polyCube(h=matela_Height, w=matela_Widthx, depth=matela_widthz)
+    cmds.polyBevel3(matela,offset=0.1)
+    cmds.polySmooth(matela, divisions=3)
+    cmds.parent(matela, gName, relative=True)
 
     #laterales
-    cmds.polyCube(h=matela_Height, w=matela_Widthx, depth=0.4, n='lateral_lit1_')
+    lateralUno = cmds.polyCube(h=matela_Height, w=matela_Widthx, depth=0.4)
     cmds.move(0,-matela_Height/2.0,-matela_widthz/2.0)
-    cmds.instance('lateral_lit1_')
+    lateralInstance = cmds.instance(lateralUno)
     cmds.move(0,-matela_Height/2.0,matela_widthz/2.0)
     cmds.polyBevel3(offset=0.05)
-    cmds.parent('lateral_lit1_','lit_complete', relative=True)
+    cmds.parent(lateralUno, gName, relative=True)
+    cmds.parent(lateralInstance, gName, relative=True)
 
 
     #tete
-    cmds.polyCube(h=matela_Height*2.0, w=0.5, depth=matela_widthz, n='tete_lit1')
+    tete = cmds.polyCube(h=matela_Height*2.0, w=0.5, depth=matela_widthz)
     cmds.move(-matela_Widthx/2.0,0,0)
-    cmds.polyExtrudeFacet('tete_lit1.f[4]', kft=False, ls=(lit_extrude_Z, lit_extrude_y, 0))
-    cmds.polyExtrudeFacet('tete_lit1.f[4]', kft=False, ltz=-0.2)
+    rtete = cmds.ls(tete)  
+    cmds.polyExtrudeFacet(str(rtete[0])+'.f[4]', kft=False, ls=(lit_extrude_Z, lit_extrude_y, 0))
+    cmds.polyExtrudeFacet(str(rtete[0])+'.f[4]', kft=False, ltz=-0.2)
     cmds.polyBevel3(offset=0.05)
-    cmds.parent('tete_lit1','lit_complete', relative=True)
+    cmds.parent(tete, gName, relative=True)
 
 
     #pieds
-    cmds.polyCube(h=matela_Height, w=0.4, depth=matela_widthz, n='pieds_lit1')
+    pied = cmds.polyCube(h=matela_Height, w=0.4, depth=matela_widthz)
     cmds.move(matela_Widthx/2.0,-matela_Height/2.0,0)
-    cmds.polyExtrudeFacet('pieds_lit1.f[4]', kft=False, ls=(lit_extrude_Z, lit_extrude_y-0.2, 0))
-    cmds.polyExtrudeFacet('pieds_lit1.f[4]', kft=False, ltz=-0.2)
+    rpied = cmds.ls(pied)
+    cmds.polyExtrudeFacet(str(rpied[0])+'.f[4]', kft=False, ls=(lit_extrude_Z, lit_extrude_y-0.2, 0))
+    cmds.polyExtrudeFacet(str(rpied[0])+'.f[4]', kft=False, ltz=-0.2)
     cmds.polyBevel3(offset=0.05)
-    cmds.parent('pieds_lit1','lit_complete', relative=True)
+    cmds.parent(pied, gName, relative=True)
 
 
     #coussin
 
-    cmds.polyCube(h=0.7, w=matela_widthz/3.0, depth=matela_widthz/2.0, n='coussin')
+    coussin = cmds.polyCube(h=0.7, w=matela_widthz/3.0, depth=matela_widthz/2.0)
     cmds.move(-matela_Widthx/2.0 + 1.8,(matela_Height/2.0)+0.1,(matela_widthz/2.0)/2.0)
     cmds.polyBevel3(offset=0.3)
     cmds.polySmooth(divisions=2)
-    cmds.instance('coussin')
+    coussinInstance = cmds.instance(coussin)
     cmds.move(-matela_Widthx/2.0 + 1.8,(matela_Height/2.0)+0.1,(-matela_widthz/2.0)/2.0)
-    cmds.parent('coussin','lit_complete', relative=True)
-
+    cmds.parent(coussin, gName, relative=True)
+    cmds.parent(coussinInstance, gName, relative=True)
 
 
 winName = 'Bed'
