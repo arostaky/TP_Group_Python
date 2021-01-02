@@ -15,7 +15,8 @@ from lib import bed
 from lib import room
 from lib import Comode
 from lib import Lamp
-modules = [test, canape, TableChaise, Chair, Table, library, bed, room, Comode, Lamp]
+from lib import armoire
+modules = [test, canape, TableChaise, Chair, Table, library, bed, room, Comode, Lamp, armoire]
 
 def reload_it():
   for sub_module in modules:
@@ -67,10 +68,16 @@ cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/canape.p
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='Chaise()')
 cmds.setParent( '..' )
 child3 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
-cmds.button()
-cmds.button()
-cmds.button()
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/1x/moduledown_cuisine.png', label='Armoire',width=mainRLWidth[1]*0.2, c='cmds.showWindow(armoire.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.setParent( '..' )
-cmds.tabLayout( tabs, edit=True, tabLabel=((child1, 'LIVING ROOM'), (child2, 'BED ROOM'), (child3, 'BED ROOM')), bgc=(backgroundColor))
+cmds.tabLayout( tabs, edit=True, tabLabel=((child1, 'LIVING ROOM'), (child2, 'BED ROOM'), (child3, 'KITCHEN')), bgc=(backgroundColor))
 cmds.showWindow(winName)
 cmds.window(winName, e=True, width=winWidth, height=470)
