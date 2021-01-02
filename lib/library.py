@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+import random
 sc = cmds.internalVar(userScriptDir=True)
 def runLibrary():
 
@@ -14,28 +15,31 @@ def runLibrary():
     heigh_between_planches = cmds.intSliderGrp(slider5, q=True, value=True)
 
     #group:
-    cmds.group(n = 'biblioteque', em=True)
+    mir = random.randint(0, 19)
+    crazyR = random.randint(0,1000)
+    gName =  'biblioteque' + str(mir) + str(crazyR)
+    cmds.group(n = gName, em=True)
 
     for i in range(planche_number):
-        cmds.polyCube(h=planche_height, w=planche_weigth, depth=planche_depth, n='planche1_'+str(i))
+        planche = cmds.polyCube(h=planche_height, w=planche_weigth, depth=planche_depth)
         cmds.polyBevel3(offset=0.05)
         cmds.move(0,i*heigh_between_planches,0)
-        cmds.parent('planche1_'+str(i),'biblioteque', relative=True)
+        cmds.parent(planche,gName, relative=True)
         
     #laterales
 
     for i in range(0,3):
-        cmds.polyCube(h=planche_height, w=planche_number*heigh_between_planches-heigh_between_planches+planche_height, depth=planche_depth, n='planchelateral_'+str(i))
+        planchalateral = cmds.polyCube(h=planche_height, w=planche_number*heigh_between_planches-heigh_between_planches+planche_height, depth=planche_depth)
         cmds.rotate(0,0,'-90deg')
         cmds.move(i*planche_weigth/2-planche_weigth/2.0,((planche_number*heigh_between_planches-heigh_between_planches)-planche_height/2)/2.0,0)
         cmds.polyBevel3(offset=0.05)
-        cmds.parent('planchelateral_'+str(i),'biblioteque', relative=True)
+        cmds.parent(planchalateral, gName, relative=True)
 
     #Back    
-    cmds.polyCube(h=planche_number*heigh_between_planches-heigh_between_planches+planche_height, w=planche_weigth, depth=planche_height, n='back')
+    back = cmds.polyCube(h=planche_number*heigh_between_planches-heigh_between_planches+planche_height, w=planche_weigth, depth=planche_height, n='back')
     cmds.move(0,((planche_number*heigh_between_planches-heigh_between_planches)-planche_height/2)/2.0,(-planche_depth/2.0)+(planche_height/2.0))
     cmds.polyBevel3(offset=0.05)
-    cmds.parent('back','biblioteque', relative=True)
+    cmds.parent(back, gName, relative=True)
 
 winName = 'Library'
 backgroundColor = [40.0/255.0,35.0/255.0,39.0/255.0]

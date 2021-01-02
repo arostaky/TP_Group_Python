@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+import random
 sc = cmds.internalVar(userScriptDir=True)
 def tableChaise():
  
@@ -9,42 +10,46 @@ def tableChaise():
    
     
     #mesa
-    cmds.polyCube(h=0.7, w=tableWidthx, depth=tablewidthz, n='table')
+    table = cmds.polyCube(h=0.7, w=tableWidthx, depth=tablewidthz)
+    rtable = cmds.ls(table[0])
+    print(rtable)
     cmds.move(0,tableHeight/2.0-0.3,0)
-    cmds.select('table.e[4:5]')
-    cmds.select('table.e[8:9]', add=True)
+    cmds.select(str(rtable[0])+'.e[4:5]')
+    cmds.select(str(rtable[0])+'.e[8:9]', add=True)
+    # cmds.select('table.e[4:5]')
+    # cmds.select('table.e[8:9]', add=True)
     cmds.polyBevel3(offset=1, segments=3)
-    cmds.polyBevel3('table', offset=0.1)
+    cmds.polyBevel3(rtable[0], offset=0.1)
     
     
     #patas
     
-    i=1
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table1_')
+    pataUno = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(-tableWidthx/2.0 + 1,0,tablewidthz/2.0 - 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table2_')
+    pataDos = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(tableWidthx/2.0 - 1,0,tablewidthz/2.0 - 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table3_')
+    pataTres = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(tableWidthx/2.0 - 1,0,-tablewidthz/2.0 + 1)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=tableHeight, w=1, depth=1, n='p_table4_')
+    pataCuatro = cmds.polyCube(h=tableHeight, w=1, depth=1)
     cmds.move(-tableWidthx/2.0 + 1,0,-tablewidthz/2.0 + 1)
     cmds.polyBevel(offset=0.1)
-    
-    cmds.group('table','p_table1_','p_table2_','p_table3_','p_table4_', n='Table1_'+str(i))
+    mir = random.randint(0, 19)
+    crazyR = random.randint(0,1000)
+    tName = 'Table'+ str(mir) + str(crazyR)
+    cmds.group(table,pataUno, pataDos, pataTres, pataCuatro, n=tName)
     
     Chaisewidthz = cmds.intSliderGrp(slider4, q=True, value=True)
     ChaiseWidthx = cmds.intSliderGrp(slider5, q=True, value=True)
     ChaiseHeight = cmds.intSliderGrp(slider6, q=True, value=True)
     Distance = cmds.intSliderGrp(slider7, q=True, value=True)
     
-    #mesa
-    cmds.polyCube(h=1, w=ChaiseWidthx, depth=Chaisewidthz, n='Chaise')
+    mainC = cmds.polyCube(h=1, w=ChaiseWidthx, depth=Chaisewidthz)
     cmds.move(0,ChaiseHeight/2.0-0.3,0)
     cmds.polyBevel(offset=0.2)
     cmds.polySmooth (dv=1)
@@ -52,59 +57,62 @@ def tableChaise():
     
     #patas
     
-    cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7, n='pata1')
+    pataUno = cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7)
     cmds.move(-ChaiseWidthx/2.0 + 0.5,0,Chaisewidthz/2.0 - 0.5)
     cmds.rotate(-4,0,-4)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7, n='pata2')
+    pataDos = cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7)
     cmds.move(ChaiseWidthx/2.0 - 0.5,0,Chaisewidthz/2.0 - 0.5)
     cmds.rotate(-4,0,4)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7, n='pata3')
+    pataTres = cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7)
     cmds.move(ChaiseWidthx/2.0 - 0.5,0,-Chaisewidthz/2.0 + 0.5)
     cmds.rotate(4,0,4)
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7, n='pata4')
+    pataCuatro = cmds.polyCube(h=ChaiseHeight, w=0.7, depth=0.7)
     cmds.move(-ChaiseWidthx/2.0 + 0.5,0,-Chaisewidthz/2.0 + 0.5)
     cmds.rotate(4,0,-4)
     cmds.polyBevel(offset=0.1)
     
     #espaldar
     
-    cmds.polyCube(h=ChaiseHeight, w=0.5, depth=0.5, n='Espaldar_1')
+    e_uno = cmds.polyCube(h=ChaiseHeight, w=0.5, depth=0.5)
     cmds.move(-ChaiseWidthx/2.0 + 0.2,ChaiseHeight,Chaisewidthz/2.0 - 1)
     cmds.rotate(0,0,7)    
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=ChaiseHeight, w=0.5, depth=0.5, n='Espaldar_2')
+    e_dos = cmds.polyCube(h=ChaiseHeight, w=0.5, depth=0.5)
     cmds.move(-ChaiseWidthx/2.0 + 0.2,ChaiseHeight,-Chaisewidthz/2.0 + 1)
     cmds.rotate(0,0,7) 
     cmds.polyBevel(offset=0.1)
     
-    cmds.polyCube(h=2.5, w=1, depth=Chaisewidthz, n='Espaldar_3')
+    e_tres = cmds.polyCube(h=2.5, w=1, depth=Chaisewidthz)
     cmds.move(-ChaiseWidthx/2.0 + 0.5,ChaiseHeight*1.4,0)
     cmds.rotate(0,0,7)
     cmds.polyBevel(offset=0.2)
     cmds.polySmooth (dv=1)
-    cmds.group('Chaise','pata1','pata2','pata3','pata4', 'Espaldar_1','Espaldar_2','Espaldar_3', n='Chaise1')
+    mir = random.randint(0, 19)
+    crazyR = random.randint(0,1000)
+    rName = 'Chair'+ str(mir) + str(crazyR)
+    cmds.group(mainC,pataUno, pataDos, pataTres, pataCuatro, e_uno, e_dos, e_tres, n=rName)
 
 
-    cmds.select('Chaise1')
+    cmds.select(rName)
     cmds.move(Distance,-1,0)
-    cmds.duplicate('Chaise1')
+    cmds.duplicate(rName)
     cmds.move(-Distance,-1,0)
     cmds.rotate(0,-180,0)
     
-    cmds.select('Chaise1')
-    cmds.duplicate('Chaise1')
+    cmds.select(rName)
+    cmds.duplicate(rName)
     cmds.move(0,-1,-Distance)
     cmds.rotate(0,90,0)
     
-    cmds.select('Chaise1')
-    cmds.duplicate('Chaise1')
+    cmds.select(rName)
+    cmds.duplicate(rName)
     cmds.move(0,-1,Distance)
     cmds.rotate(0,-90,0)
     
