@@ -1,5 +1,5 @@
 import maya.cmds as cmds
-cmds.file(f=True, new=True)
+# cmds.file(f=True, new=True)
 sc = cmds.internalVar(userScriptDir=True)
 
 #Fixing import issue: 
