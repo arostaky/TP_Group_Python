@@ -16,7 +16,8 @@ from lib import room
 from lib import Comode
 from lib import Lamp
 from lib import armoire
-modules = [test, canape, TableChaise, Chair, Table, library, bed, room, Comode, Lamp, armoire]
+from lib import armoireUp
+modules = [test, canape, TableChaise, Chair, Table, library, bed, room, Comode, Lamp, armoire, armoireUp]
 
 def reload_it():
   for sub_module in modules:
@@ -68,7 +69,8 @@ cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/canape.p
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='Chaise()')
 cmds.setParent( '..' )
 child3 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/1x/moduledown_cuisine.png', label='Armoire',width=mainRLWidth[1]*0.2, c='cmds.showWindow(armoire.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/1x/moduledown_cuisine.png', label='Cupboard Down',width=mainRLWidth[1]*0.2, c='cmds.showWindow(armoire.winName)')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/1x/moduleup_cuisine.png', label='Upper Cupboard',width=mainRLWidth[1]*0.2, c='cmds.showWindow(armoireUp.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
