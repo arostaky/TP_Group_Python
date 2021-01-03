@@ -17,7 +17,8 @@ from lib import Comode
 from lib import Lamp
 from lib import armoire
 from lib import armoireUp
-modules = [test, canape, TableChaise, Chair, Table, library, bed, room, Comode, Lamp, armoire, armoireUp]
+from lib import four
+modules = [test, canape, TableChaise, Chair, Table, library, bed, room, Comode, Lamp, armoire, armoireUp, four]
 
 def reload_it():
   for sub_module in modules:
@@ -57,21 +58,18 @@ cmds.setParent( '..' )
 child2 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lit.png', label='Bed',width=mainRLWidth[1]*0.2, c='cmds.showWindow(bed.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/comode.png', label='Comode',width=mainRLWidth[1]*0.2, c='cmds.showWindow(Comode.winName)')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/chaise.png', label='Chaise',width=mainRLWidth[1]*0.2, c='table()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lamp.png', label='Lamp',width=mainRLWidth[1]*0.2, c='table()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/placard.png', label='Placard',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/table_chaise.png', label='Table et Chaise',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/table.png', label='Table',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/biblioteque.png', label='Biblioteque',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lamp.png', label='Lamp',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/lit.png', label='Lit',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/canape.png', label='Canape',width=mainRLWidth[1]*0.2, c='Chaise()')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='Chaise()')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.setParent( '..' )
 child3 = cmds.rowColumnLayout(w=winWidth, numberOfColumns=4, columnWidth=[(1, 150), (2, 150), (3, 150), (4, 150)])
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/1x/moduledown_cuisine.png', label='Cupboard Down',width=mainRLWidth[1]*0.2, c='cmds.showWindow(armoire.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/1x/moduleup_cuisine.png', label='Upper Cupboard',width=mainRLWidth[1]*0.2, c='cmds.showWindow(armoireUp.winName)')
-cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
+cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/1x/moduledown_cuisine.png', label='Oven',width=mainRLWidth[1]*0.2, c='cmds.showWindow(four.winName)')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
 cmds.iconTextButton(style='iconAndTextVertical', image1=sc + '/icons/2x/coming_soon.png', label='Coming Soon', c='')
